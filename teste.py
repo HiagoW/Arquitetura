@@ -1,5 +1,30 @@
 from array import array
-def func(x, y):
+def dectobase(x, y):
+    vet=[]
+    c=0
+    while x>0:
+        i=x%y
+        if y==16:
+            if i==10:
+                i='A'
+            if i==11:
+                i='B'
+            if i==12:
+                i='C'
+            if i==13:
+                i='D'
+            if i==14:
+                i='E'
+            if i==15:
+                i='F'
+        vet.append(i)
+        x=x//y
+        c+=1
+    vet.reverse()
+    for i in range(c):
+        print(vet[i], end="")
+
+def basetodec(x, y):
 	soma=0
 	if y==16:
 		vet=[d for d in x]
@@ -16,13 +41,12 @@ def func(x, y):
 				vet[c]='14'
 			if vet[c].upper()=='F':
 				vet[c]='15'
-	print(vet)
 	vet=[int(d) for d in vet]
 	vet=list(reversed(vet))
 	for c in range(len(vet)):
 		soma+=vet[c]*(y**c)
-		print(vet[c],'*(',y,'**',c)
 	print(soma)
+
 def validar(y):
 	e=1
 	if y==2:
@@ -51,9 +75,19 @@ def validar(y):
 					e=1
 	return x
 
-y=0
-while y not in (2,8,16):
-    y=int(input('Digite a base para conversao[2,8 ou 16]'))
-x=validar(y)
-
-func(x,y)
+escolha=0
+while escolha not in (1,2):
+	escolha=int(input('1 - Decimal para Binario/Octal/Hexadecimal\n2 - Binario/Octal/Hexadecimal para Decimal\nEscolha uma opcao: '))
+if escolha==1:
+	x=int(input('Digite o numero decimal que deseja converter: '))
+	y=0
+	while y not in (2,8,16):
+		y=int(input('Digite a base para conversao[2,8 ou 16]: '))
+	dectobase(x,y)
+else:
+	y=0
+	while y not in (2,8,16):
+	    y=int(input('Digite a base que deseja converter para decimal [2,8 ou 16]: '))
+	x=validar(y)
+	basetodec(x,y)
+	
