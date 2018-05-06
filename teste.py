@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-from array import array
-def func(x, y):
-    vet=[]
-    c=0
-    while x>0:
-        i=x%y
-=======
 def dectobase(x, y):
     #cria vetor que vai receber o numero na outra base
     vet=[]
@@ -15,7 +7,6 @@ def dectobase(x, y):
     while x>0:
         i=x%y
         #se a base for 16, e o resto for um dos numeros maiores que 9, atribui a letra correspondente
->>>>>>> Hiago
         if y==16:
             if i==10:
                 i='A'
@@ -29,20 +20,6 @@ def dectobase(x, y):
                 i='E'
             if i==15:
                 i='F'
-<<<<<<< HEAD
-        vet.append(i)
-        x=x//y
-        c+=1
-    vet.reverse()
-    for i in range(c):
-        print(vet[i], end="")
-
-x=int(input('Digite o numero que deseja converter: '))
-y=0
-while y not in (2,8,16):
-    y=int(input('Digite a base para conversao[2,8 ou 16]'))
-func(x,y)
-=======
         #adiciona o resto da divisão no final do vetor
         vet.append(i)
         #x recebe o resultado da divisão inteiro de x por y
@@ -143,4 +120,3 @@ else:
 	x=validar(y)
 	basetodec(x,y)
 	
->>>>>>> Hiago
