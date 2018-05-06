@@ -25,6 +25,7 @@ def dectobase(x, y):
         print(vet[i], end="")
 
 def basetodec(x, y):
+	vet=[]
 	soma=0
 	if y==16:
 		vet=[d for d in x]
@@ -41,11 +42,17 @@ def basetodec(x, y):
 				vet[c]='14'
 			if vet[c].upper()=='F':
 				vet[c]='15'
-	vet=[int(d) for d in vet]
-	vet=list(reversed(vet))
-	for c in range(len(vet)):
-		soma+=vet[c]*(y**c)
-	print(soma)
+		vet=[int(d) for d in vet]
+		vet=list(reversed(vet))
+		for c in range(len(vet)):
+			soma+=vet[c]*(y**c)
+		print(soma)
+	else:
+		vet=[int(d) for d in x]
+		vet=list(reversed(vet))
+		for c in range(len(vet)):
+			soma+=vet[c]*(y**c)
+		print(soma)
 
 def validar(y):
 	e=1
