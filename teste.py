@@ -61,7 +61,7 @@ def basetodec(x, y):
 	#inverte a ordem do vetor
 	vet=list(reversed(vet))
 	for c in range(len(vet)):
-		#a variavel soma a soma dos elementos do vetor, multiplicado pela base escolhida elevada a posição correspondente
+		#a variavel soma recebe a soma dos elementos do vetor, multiplicado pela base escolhida elevada a posição correspondente
 		#ex: base 2 - 011 = 1*2^0 + 1*2^1 + 0*2^2
 		soma+=vet[c]*(y**c)
 	print(soma)
