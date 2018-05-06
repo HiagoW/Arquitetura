@@ -1,9 +1,21 @@
+<<<<<<< HEAD
 from array import array
 def func(x, y):
     vet=[]
     c=0
     while x>0:
         i=x%y
+=======
+def dectobase(x, y):
+    #cria vetor que vai receber o numero na outra base
+    vet=[]
+    c=0
+    #vai dividindo o numero decimal na base escolhida até chegar a zero
+    #atribuindo o resto da divisao a variavel i
+    while x>0:
+        i=x%y
+        #se a base for 16, e o resto for um dos numeros maiores que 9, atribui a letra correspondente
+>>>>>>> Hiago
         if y==16:
             if i==10:
                 i='A'
@@ -17,6 +29,7 @@ def func(x, y):
                 i='E'
             if i==15:
                 i='F'
+<<<<<<< HEAD
         vet.append(i)
         x=x//y
         c+=1
@@ -29,6 +42,62 @@ y=0
 while y not in (2,8,16):
     y=int(input('Digite a base para conversao[2,8 ou 16]'))
 func(x,y)
+=======
+        #adiciona o resto da divisão no final do vetor
+        vet.append(i)
+        #x recebe o resultado da divisão inteiro de x por y
+        x=x//y
+        #contador c recebe +1 para saber o tamanho do vetor
+        c+=1
+    #inverte o vetor para exibir o numero na ordem correta    
+    vet.reverse()
+    #sabendo o tamanho do vetor na variavel c, exibe cada elemento
+    for i in range(c):
+        print(vet[i], end="")
+
+def basetodec(x, y):
+	vet=[]
+	soma=0
+	#se a base escolhida for 16...
+	if y==16:
+		#cria um vetor separando todos elementos da string que o usuário digitou
+		vet=[d for d in x]
+		#percorre os elementos e para cada letra, troca pelo número correspondente
+		for c in range(len(vet)):
+			if vet[c].upper()=='A':
+				vet[c]='10'
+			if vet[c].upper()=='B':
+				vet[c]='11'
+			if vet[c].upper()=='C':
+				vet[c]='12'
+			if vet[c].upper()=='D':
+				vet[c]='13'
+			if vet[c].upper()=='E':
+				vet[c]='14'
+			if vet[c].upper()=='F':
+				vet[c]='15'
+		#converte os numeros substituidos para inteiro
+		vet=[int(d) for d in vet]
+	else:
+		#se a base não for 16, converte diretamente todos elementos para inteiro
+		vet=[int(d) for d in x]
+	#inverte a ordem do vetor
+	vet=list(reversed(vet))
+	for c in range(len(vet)):
+		#a variavel soma recebe a soma dos elementos do vetor, multiplicado pela base escolhida elevada a posição correspondente
+		#ex: base 2 - 011 = 1*2^0 + 1*2^1 + 0*2^2
+		soma+=vet[c]*(y**c)
+	print(soma)
+
+def validar(y):
+	e=1
+	#valida o numero na base 2
+	if y==2:
+		while e!=0:
+			#e recebe 0, se tiver algo errado no numero, vai receber 1 e continuar no while
+			e=0
+			x=input('Digite o numero que deseja converter para decimal: ')
+			#cria um vetor separando a string x e convertendo todos elementos em inteiros
 			vet=[int(d) for d in x]
 			#percorre o vetor
 			for c in range(len(vet)):
