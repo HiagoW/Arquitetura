@@ -1,4 +1,3 @@
-from array import array
 def dectobase(x, y):
     vet=[]
     c=0
