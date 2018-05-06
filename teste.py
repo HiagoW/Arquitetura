@@ -43,16 +43,12 @@ def basetodec(x, y):
 			if vet[c].upper()=='F':
 				vet[c]='15'
 		vet=[int(d) for d in vet]
-		vet=list(reversed(vet))
-		for c in range(len(vet)):
-			soma+=vet[c]*(y**c)
-		print(soma)
 	else:
 		vet=[int(d) for d in x]
-		vet=list(reversed(vet))
-		for c in range(len(vet)):
-			soma+=vet[c]*(y**c)
-		print(soma)
+	vet=list(reversed(vet))
+	for c in range(len(vet)):
+		soma+=vet[c]*(y**c)
+	print(soma)
 
 def validar(y):
 	e=1
